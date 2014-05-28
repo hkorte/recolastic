@@ -1,0 +1,38 @@
+@font-face{
+    font-family: 'Gibson-Regular';
+    src: url('../fonts/Gibson-Regular-webfont.eot');
+    src: url('../fonts/Gibson-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Gibson-Regular-webfont.woff') format('woff'),
+    url('../fonts/Gibson-Regular-webfont.ttf') format('truetype'),
+    url('../fonts/Gibson-Regular-webfont.svg#webfont') format('svg');
+}
+
+body {
+    padding-top: 10px;
+    font-family: Gibson-Regular;
+    font-size: 18px;
+}
+
+div.item {
+    margin: 5px;
+    padding: 5px;
+    cursor: default;
+}
+
+div.item:hover {
+    background-color: #F5F5F5;
+}
+
+div.par {
+    padding: 10px;
+    margin: 0;
+}
+
+div.scrollable {
+    height: 200px;
+    overflow-y: auto;
+}
+
+div.recommendation {
+
+}

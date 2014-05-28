@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Recolastic - A movie recommender system based on IMDB lists and Elasticsearch</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/app.css"/>
+	<link rel="stylesheet" href="css/spinner.css"/>
+</head>
+<body>
+
+<div ng-app="Recolastic" ng-controller="MainController">
+
+	<div class="col-md-2">
+		<div class="panel panel-default">
+			<div class="panel-heading">ES Settings</div>
+			<div class="panel-body">
+				<div class="form-group">
+					<label for="selectedHost">Host</label>
+					<input ng-model="selectedHost" type="text" class="form-control" id="selectedHost">
+				</div>
+				<div class="form-group">
+					<label for="selectedIndex">Index</label>
+					<input ng-model="selectedIndex" type="text" class="form-control" id="selectedIndex">
+				</div>
+				<div class="form-group">
+					<label for="selectedSize">Size</label>
+					<input ng-model="selectedSize" type="number" class="form-control" id="selectedSize">
+				</div>
+				<div class="form-group">
+					<label for="state">State</label>
+					<input ng-model="state" type="text" ng-disabled="true" class="form-control" id="state">
+				</div>
+				<div class="form-group">
+					<label for="refLists">#Lists</label>
+					<input ng-model="refLists.length" type="text" ng-disabled="true" class="form-control" id="refLists">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-10">
+		<div class="panel panel-default">
+			<div class="panel-heading">Movie Suggester</div>
+			<div class="panel-body">
+				<div style="width: 50%; float: left;">
+					<div class="par">
+						<h4>Search some movies:</h4>
+						<div class="form-group">
+							<input ng-model="newMovie" placeholder="movie name ..." type="text" class="form-control" id="newMovie">
+							<!--<autocomplete ng-model="result" attr-placeholder="type to search movies..." click-activation="true"-->
+									<!--data="movies" on-type="doSomething" on-select="doSomethingElse"></autocomplete>-->
+						</div>
+						<div>
+							<div ng-repeat="movie in suggestions" ng-click="addMovie(movie);" class="item">
+								{{movie.title}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div style="width: 50%; float: right;">
+					<div class="par">
+						<h4>Selected reference movies:</h4>
+						<div>
+							<div ng-repeat="movie in selectedMovies" ng-click="removeMovie(movie);" class="item" title="Remove from list">
+								{{movie.title}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="par" style="text-align: center; clear: both">
+					<button type="button" style="font-size: 200%" ng-click="search();" class="btn btn-default">What to watch next?</button>
+				</div>
+				<div class="par">
+					<div ng-repeat="movie in recommendedMovies" class="item recommendation" ng-click="addMovie(movie);">
+						<span style="height: 100px; width: 60px; margin-right: 10px;">
+							<img ng-show="movie.imgUrl" src="{{movie.imgUrl}}" style="max-height: 100px; max-width: 60px;"/>
+						</span>
+						{{movie.title}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+<script src="lib/ui-bootstrap-0.10.0.min.js"></script>
+
+<script src="js/app.js"></script>
+<script src="js/controllers/main.js"></script>
+<script src="js/directives/spinner.js"></script>
+</body>
+</html>
