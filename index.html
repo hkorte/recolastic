@@ -73,7 +73,7 @@
 				<div class="par">
 					<div ng-repeat="movie in recommendedMovies" class="item recommendation" ng-click="addMovie(movie);">
 						<span style="height: 100px; width: 60px; margin-right: 10px;">
-							<img ng-show="movie.imgUrl" src="{{movie.imgUrl}}" style="max-height: 100px; max-width: 60px;"/>
+							<img ng-show="movie.imgUrl" ng-src="{{movie.imgUrl}}" style="max-height: 100px; max-width: 60px;"/>
 						</span>
 						{{movie.title}}
 					</div>

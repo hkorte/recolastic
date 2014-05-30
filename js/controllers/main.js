@@ -6,6 +6,7 @@ app.controller("MainController", function($scope, $http, $timeout){
 	$scope.selectedSize = 10;
 	$scope.selectedMovies = [];
 	$scope.suggestions = [];
+	$scope.recommendedMovies = [];
 	$scope.refLists = [];
 	$scope.results = [];
 	$scope.newMovieLastReq = "";
